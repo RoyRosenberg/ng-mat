@@ -41,36 +41,52 @@
       <mat-icon>insert_drive_file</mat-icon>
     </button>
   </div>
-
 </div>
 
-<div style="margin-top: 10px;margin-bottom: 10px;">
-  <mat-checkbox [checked]="showCustomCopy" (change)="showCustomCopy = !showCustomCopy">העתקה מיוחדת</mat-checkbox>
-</div>
-
-<div fxLayout="row" *ngIf="showCustomCopy" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
-  <mat-form-field fxFlex="80%" appearance="outline">
-    <mat-label>העתק</mat-label>
-    <input matInput placeholder="העתק" type="text" />
-  </mat-form-field>
-  <div fxFlex="20%">
-  </div>
-</div>
-
-<div style="margin-top: 10px;margin-bottom: 0px;">
-  <mat-checkbox [checked]="showParsers" (change)="showParsers = !showParsers">בחר מנתחים</mat-checkbox>
-</div>
-<div fxLayout="row" *ngIf="showParsers" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
-  <div fxFlex="80%" appearance="outline">
-    <div *ngFor="let parser of parsers" style="margin-right: 20px;">
-      <mat-checkbox [checked]="parser.checked">{{parser.name}}</mat-checkbox>
-      <br />
+<mat-accordion [multi]="true" style="margin-right: 15px;margin-left: 15px;" >
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        העתקה לתיקיית משתמש
+      </mat-panel-title>
+      <mat-panel-description>
+        בחר כדי להעתיק את הקובץ למקום נוסף ברשת
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div style="margin-top: 10px;margin-bottom: 10px;">
+      <mat-checkbox [checked]="showCustomCopy" (change)="showCustomCopy = !showCustomCopy">העתקה מיוחדת</mat-checkbox>
     </div>
-  </div>
-  <div fxFlex="20%">
-  </div>
-</div>
-
+    <div fxLayout="row" *ngIf="showCustomCopy" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px"
+      fxLayoutAlign="center">
+      <mat-form-field fxFlex="80%" appearance="outline">
+        <mat-label>העתק</mat-label>
+        <input matInput placeholder="העתק" type="text" />
+      </mat-form-field>
+      <div fxFlex="20%">
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        בחר מתחים
+      </mat-panel-title>
+      <mat-panel-description>
+        בחר סוגי הפיענוח
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
+      <div fxFlex="80%" appearance="outline">
+        <div *ngFor="let parser of parsers">
+          <mat-checkbox [checked]="parser.checked">{{parser.name}}</mat-checkbox>
+          <br />
+        </div>
+      </div>
+      <div fxFlex="20%">
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
 
 <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="end">
   <button mat-raised-button color="accent" (click)="click()" [disabled]="loading">
