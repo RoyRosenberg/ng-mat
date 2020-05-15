@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-mat01';
+  loading = false;
+  show = false;
+  options = ['one', 'two', 'three'];
+
+  click() {
+    this.loading = true;
+    setTimeout(() => this.loading = false, 2000);
+  }
 }
