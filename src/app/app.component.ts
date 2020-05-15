@@ -20,9 +20,8 @@ export class AppComponent implements OnInit {
         map(() => this.router)
       )
       .subscribe((event) => {
-        const title = this.getTitle(this.router.routerState, this.router.routerState.root).join(' | ');
-        this.currentPageTitle = title;
-        this.titleService.setTitle(title);
+        this.currentPageTitle = this.getTitle(this.router.routerState, this.router.routerState.root).join(' | ');
+        this.titleService.setTitle(`${this.title} | ${this.currentPageTitle}`);
       }
       );
   }
