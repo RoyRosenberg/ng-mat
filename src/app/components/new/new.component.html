@@ -45,10 +45,10 @@
 </div>
 
 <div style="margin-top: 10px;margin-bottom: 10px;">
-  <mat-checkbox [checked]="show" (change)="show = !show">עוד פרטים</mat-checkbox>
+  <mat-checkbox [checked]="showCustomCopy" (change)="showCustomCopy = !showCustomCopy">העתקה מיוחדת</mat-checkbox>
 </div>
 
-<div fxLayout="row" *ngIf="show" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
+<div fxLayout="row" *ngIf="showCustomCopy" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
   <mat-form-field fxFlex="80%" appearance="outline">
     <mat-label>העתק</mat-label>
     <input matInput placeholder="העתק" type="text" />
@@ -56,6 +56,21 @@
   <div fxFlex="20%">
   </div>
 </div>
+
+<div style="margin-top: 10px;margin-bottom: 0px;">
+  <mat-checkbox [checked]="showParsers" (change)="showParsers = !showParsers">בחר מנתחים</mat-checkbox>
+</div>
+<div fxLayout="row" *ngIf="showParsers" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
+  <div fxFlex="80%" appearance="outline">
+    <div *ngFor="let parser of parsers" style="margin-right: 20px;">
+      <mat-checkbox [checked]="parser.checked">{{parser.name}}</mat-checkbox>
+      <br />
+    </div>
+  </div>
+  <div fxFlex="20%">
+  </div>
+</div>
+
 
 <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="end">
   <button mat-raised-button color="accent" (click)="click()" [disabled]="loading">
