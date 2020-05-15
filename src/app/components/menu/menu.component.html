@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{title}}</span>
+    <div>
+      <a mat-button [routerLink]="'/product/new'"> חדש </a>
+      <a mat-button [routerLink]="'/product/list'"> רשימה </a>
+      <a mat-button [routerLink]="'/help'"> עזרה </a>
+    </div>
+    <span class="toolbar-spacer"></span>
+    <mat-icon class="toolbar-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+    <mat-icon class="toolbar-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>

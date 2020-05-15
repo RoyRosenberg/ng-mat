@@ -1,90 +1,15 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>כותרת</span>
-    <div>
-      <a mat-button [routerLink]="'/accounts'"> חדש </a>
-      <a mat-button [routerLink]="'/create-account'"> רשימה </a>
-      <a mat-button [routerLink]="'/contacts'"> עזרה </a>
-
-    </div>
-    <span class="toolbar-spacer"></span>
-    <mat-icon class="toolbar-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-    <mat-icon class="toolbar-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
-  </mat-toolbar-row>
-</mat-toolbar>
+<app-menu [title]="title"></app-menu>
 
 <div class="container">
+
   <mat-card>
     <mat-toolbar color="accent">
-      <span>בקשה חדשה</span>
+      <span>{{currentPageTitle}}</span>
     </mat-toolbar>
-
     <mat-card-content>
-
-      <div fxLayout="row" style="margin-top: 10px;" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
-        <mat-form-field fxFlex="100%" appearance="outline">
-          <mat-label>נושא</mat-label>
-          <input matInput placeholder="נושא" type="text" />
-        </mat-form-field>
-      </div>
-
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
-        <mat-form-field fxFlex="80%" appearance="outline"> 
-          <mat-label>שם</mat-label>
-          <input matInput placeholder="שם" type="text" />
-        </mat-form-field>
-        <mat-form-field fxFlex="20%" appearance="outline">
-          <mat-label>סוג</mat-label>
-          <input matInput placeholder="סוג" type="text" />
-        </mat-form-field>
-      </div>
-
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
-        <mat-form-field fxFlex="100%" appearance="outline">
-          <mat-label>הערות</mat-label>
-          <textarea matInput placeholder="הערות" rows="4"></textarea>
-        </mat-form-field>
-      </div>
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
-        <mat-form-field fxFlex="80%" appearance="outline">
-          <mat-label>בחר קובץ</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let opt of options" [value]="opt">
-              {{opt}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <div fxFlex="20%">
-          <button class="button-icon" mat-icon-button (click)="click()" aria-label="לחץ לרענון">
-            <mat-icon [class.spinner]="loading">refresh</mat-icon>
-          </button>
-          <button mat-icon-button aria-label="העתק">
-            <mat-icon>insert_drive_file</mat-icon>
-          </button>
-        </div>
-
-      </div>
-
-      <mat-checkbox [checked]="show" (change)="show = !show">עוד פרטים</mat-checkbox>
-
-      <div fxLayout="row" style="margin-top: 10px;" *ngIf="show" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
-        <mat-form-field fxFlex="80%" appearance="outline">
-          <mat-label>העתק</mat-label>
-          <input matInput placeholder="העתק" type="text" />
-        </mat-form-field>
-        <div fxFlex="20%">
-        </div>
-      </div>
-
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="end">
-        <button mat-raised-button color="accent" (click)="click()" [disabled]="loading">
-          שמור
-          <!-- <mat-progress-spinner color="primary" diameter="12" mode="indeterminate">
-          </mat-progress-spinner> -->
-          <mat-icon *ngIf="loading" class="spinner">autorenew</mat-icon>
-        </button>
-      </div>
-
+      <router-outlet></router-outlet>
     </mat-card-content>
   </mat-card>
+
+
 </div>
