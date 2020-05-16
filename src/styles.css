@@ -13,3 +13,7 @@ body {
 .container {
     margin: 40px;
 }
+
+.mat-simple-snackbar-action {
+    color: #155724 !important;
+}

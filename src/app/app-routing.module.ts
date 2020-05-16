@@ -8,7 +8,7 @@ import { StatusComponent } from './components/status/status.component';
 
 
 const routes: Routes = [
-  { path: '', component: NewComponent },
+  { path: '', redirectTo: 'product/new', pathMatch: 'full' },
   {
     path: 'product',
     children: [
@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'status:id', component: StatusComponent, data: { title: 'סטטוס' } }
     ]
   },
-  { path: 'help', component: HelpComponent, data: { title: 'עזרה' }  }
+  { path: 'help', component: HelpComponent, data: { title: 'עזרה' } }
 ];
 
 @NgModule({

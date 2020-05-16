@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertService } from 'src/app/services/alert.service';
 
 interface Parser {
   name: string;
@@ -22,9 +23,15 @@ export class NewComponent implements OnInit {
     { name: 'מסמכים', description: 'מנתח מסמכים', checked: true },
     { name: 'היסטוריה', description: 'מנתח הסטוריה', checked: true },
   ];
-  constructor() { }
+  constructor(private alertSrv: AlertService) { }
 
   ngOnInit() {
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.alertSrv.showInformation('זוהי הודעה', action);
+    this.alertSrv.showWarning('זוהי אזהרה', action);
+    this.alertSrv.showError('זוהי שגיאה', action);
   }
 
   click() {
