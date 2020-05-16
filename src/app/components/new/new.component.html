@@ -1,33 +1,33 @@
-<form>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
   <div fxLayout="row" style="margin-top: 10px;" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px"
     fxLayoutAlign="center">
     <mat-form-field fxFlex="100%" appearance="outline">
       <mat-label>נושא</mat-label>
-      <input matInput placeholder="נושא" type="text" />
+      <input matInput placeholder="נושא" type="text" formControlName="subject" />
     </mat-form-field>
   </div>
 
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
     <mat-form-field fxFlex="80%" appearance="outline">
       <mat-label>שם</mat-label>
-      <input matInput placeholder="שם" type="text" />
+      <input matInput placeholder="שם" type="text" formControlName="name" />
     </mat-form-field>
     <mat-form-field fxFlex="20%" appearance="outline">
       <mat-label>סוג</mat-label>
-      <input matInput placeholder="סוג" type="text" />
+      <input matInput placeholder="סוג" type="text" formControlName="type" />
     </mat-form-field>
   </div>
 
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
     <mat-form-field fxFlex="100%" appearance="outline">
       <mat-label>הערות</mat-label>
-      <textarea matInput placeholder="הערות" rows="4"></textarea>
+      <textarea matInput placeholder="הערות" rows="4" formControlName="comments"></textarea>
     </mat-form-field>
   </div>
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
     <mat-form-field fxFlex="80%" appearance="outline">
       <mat-label>בחר קובץ</mat-label>
-      <mat-select>
+      <mat-select formControlName="file">
         <mat-option *ngFor="let opt of options" [value]="opt">
           {{opt}}
         </mat-option>
@@ -90,7 +90,7 @@
   </mat-accordion>
 
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="end">
-    <button mat-raised-button color="accent" (click)="click()" [disabled]="loading">
+    <button type="submit" mat-raised-button color="accent" [disabled]="loading">
       שמור
       <!-- <mat-progress-spinner color="primary" diameter="12" mode="indeterminate">
         </mat-progress-spinner> -->

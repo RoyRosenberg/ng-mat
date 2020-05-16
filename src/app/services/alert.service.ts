@@ -9,23 +9,23 @@ export class AlertService {
   constructor(private snackBar: MatSnackBar) { }
 
   showError(message: string, action: string) {
-    this.snackBar.open(`⚠️ ${message}`, action, {
+    this.snackBar.open(`🛑 ${message}`, action, {
       // duration: 2000,
-      panelClass: ['mat-toolbar', 'mat-warn']
+      // panelClass: ['mat-toolbar', 'mat-warn']
     });
   }
 
   showWarning(message: string, action: string) {
-    this.snackBar.open(message, action, {
+    this.snackBar.open(`⚠️ ${message}`, action, {
       // duration: 2000,
-      panelClass: ['mat-toolbar', 'mat-accent']
+      // panelClass: ['mat-toolbar', 'mat-accent']
     });
   }
 
   showInformation(message: string, action: string) {
-    this.snackBar.open(message, action, {
+    this.snackBar.open(`💬 ${message}`, action, {
       // duration: 2000,
-      panelClass: ['mat-toolbar', 'mat-primary']
+      // panelClass: ['mat-toolbar', 'mat-primary']
     });
   }
 
